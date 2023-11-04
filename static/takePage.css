@@ -65,3 +65,16 @@ li,
   display: flex;
   justify-content: flex-end;
 }
+.footer {
+  background-color: #ff53a5;
+  height: 15vh;
+}
+.footer-content {
+  font-size: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+}
