@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fafafa;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+          max-width: 800px;
+          margin: 20px auto;
+          background-color: white;
+          border: 1px solid #ccc;
+          padding: 20px;
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .profile-container {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .profile-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 10px;
+        }
+
+        .profile-info, .button-info {
+            text-align: center;
+        }
+
+        .profile-info h1 {
+            margin: 0;
+            font-size: 1.5em;
+        }
+
+        .profile-info p {
+            margin: 5px 0;
+        }
+
+        .follow-button, .home-button, .review-button {
+            background-color: #3897f0;
+            color: white;
+            padding: 8px 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+
+        .review {
+              display: flex;
+              flex-wrap: wrap;
+              justify-content: space-between;
+              margin-top: 20px;
+          }
+
+          .review-item {
+              width: calc(33.3333% - 10px);
+              margin-bottom: 10px;
+              overflow: hidden;
+          }
+
+          .review-item img {
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+              border-radius: 8px;
+          }
+
+          .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.7);
+        }
+
+        .modal-content {
+            margin: 5% auto;
+            padding: 20px;
+            width: 80%;
+            max-width: 600px;
+            background-color: #fefefe;
+            border-radius: 8px;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+    </style>
+    <title>Instagram Profile</title>
+</head>
+<body>
+
+<div class="container">
+  <div class="profile-container">
+    <div class="image-container">
+      <br><br>
+        <img class="profile-image" src="profile-picture.jpg" alt="Profile Picture">
+    </div>
+
+    <div class="info-container">
+      <div class="profile-info">
+          <br><br><br>
+          <h1>Username</h1><br>
+          <p>판매수: 100 | 기부 누적 스타: 1000 | 팔로워: 100</p>
+      </div>
+      <br>
+      <div class="button-info">
+          <button class="home-button">Market</button>
+          <button class="follow-button">Follow</button>
+          <button class="review-button" onclick="location.href='review_write.html'">Review</button>
+      </div>
+  </div>
+</div>
+    <br><br><br><hr />
+    <div><h3>Review</h3></div>
+    <div class="review">
+      <!-- Review Item 1 -->
+      <div class="review-item" onclick="openModal('image1.jpg', 'Review Image 1')">
+           <img src="image1.jpg" alt="Review Image 1">
+       </div>
+
+       <!-- Review Item 2 -->
+       <div class="review-item" onclick="openModal('image2.jpg', 'Review Image 2')">
+           <img src="image2.jpg" alt="Review Image 2">
+       </div>
+
+       <!-- Review Item 3 -->
+       <div class="review-item" onclick="openModal('image3.jpg', 'Review Image 3')">
+           <img src="image3.jpg" alt="Review Image 3">
+       </div>
+
+
+
+    </div>
+</div>
+
+<div id="myModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img id="modalImage" src="" alt="Detailed Review">
+        <p>Buyer : Haein</p>
+        <p>Score : 4/5 </p>
+        <p>배송 빨라요/포장 꼼꼼해요/상태 최상</p>
+    </div>
+</div>
+
+<script>
+function openModal(imageSrc, altText) {
+      var modal = document.getElementById("myModal");
+      var modalContent = document.querySelector(".modal-content");
+      var modalImage = document.getElementById("modalImage");
+
+      // Set the image source and alt text
+      modalImage.src = imageSrc;
+      modalImage.alt = altText;
+
+      // Show the modal
+      modal.style.display = "block";
+
+      // Ensure the image is loaded before calculating dimensions
+      modalImage.onload = function() {
+          // Calculate the aspect ratio of the image
+          var aspectRatio = modalImage.width / modalImage.height;
+
+          // Set the maximum width and height of the image to fit inside the modal
+          var maxWidth = modalContent.clientWidth * 0.9;
+          var maxHeight = window.innerHeight * 0.8;
+
+          // Calculate corresponding width and height based on aspect ratio
+          var width = Math.min(maxWidth, maxHeight * aspectRatio);
+          var height = width / aspectRatio;
+
+          // Set the image dimensions
+          modalImage.style.width = width + "px";
+          modalImage.style.height = height + "px";
+      };
+      }
+
+    function closeModal() {
+        var modal = document.getElementById("myModal");
+        modal.style.display = "none";
+    }
+
+    // Close modal if clicked outside of the modal content
+    window.onclick = function(event) {
+        var modal = document.getElementById("myModal");
+        if (event.target === modal) {
+            closeModal();
+        }
+    };
+</script>
+
+</body>
+</html>

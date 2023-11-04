@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fafafa;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+          max-width: 800px;
+          margin: 20px auto;
+          background-color: white;
+          border: 1px solid #ccc;
+          padding: 20px;
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .profile-container {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .profile-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 10px;
+        }
+
+        .profile-info, .button-info {
+            text-align: center;
+        }
+
+        .profile-info h1 {
+            margin: 0;
+            font-size: 1.5em;
+        }
+
+        .profile-info p {
+            margin: 5px 0;
+        }
+
+        .follow-button, .home-button, .review-button, .save-button {
+            background-color: #3897f0;
+            color: white;
+            padding: 8px 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+
+        .select {
+          display: flex;
+          flex-direction: row;
+          flex-wrap: wrap;
+
+    padding: 15px 10px;
+        }
+        .select input[type=radio]{
+            display: none;
+        }
+        .select input[type=radio]+label{
+            display: inline-block;
+            cursor: pointer;
+            height: 24px;
+            width: 90px;
+            border: 1px solid #333;
+            line-height: 24px;
+            text-align: center;
+            font-weight:bold;
+            font-size:13px;
+        }
+        .select input[type=radio]+label{
+            background-color: #fff;
+            color: #333;
+        }
+        .select input[type=radio]:checked+label{
+            background-color: #333;
+            color: #fff;
+        }
+
+    </style>
+    <title>Instagram Profile</title>
+</head>
+<body>
+
+<div class="container">
+  <div class="profile-container">
+        <div class="image-container">
+          <br><br>
+            <img class="profile-image" src="profile-picture.jpg" alt="Profile Picture">
+        </div>
+
+        <div class="info-container">
+          <div class="profile-info">
+            <br><br><br>
+            <h1>Username</h1><br>
+            <p>판매수: 100 | 기부 누적 스타: 1000 | 팔로워: 100</p>
+        </div>
+        <br>
+          <div class="button-info">
+              <button class="home-button">Market</button>
+              <button class="follow-button">Follow</button>
+              <button class="review-button">Review</button>
+          </div>
+      </div>
+    </div>
+
+    <br><br><br><hr />
+    <div><h3>Write Review</h3></div>
+    <div class="review">
+
+      <div><h3>Image</h3></div>
+      <div class="reg_img">
+        <label for="img">Review Image Upload : </label>
+        <input type="file" name="file" /><br><br>
+      </div>
+
+      <div><h3>Rates</h3></div>
+      <div class="select">
+        <h4>평점&nbsp;&nbsp;&nbsp;&nbsp;</h4>
+        <input type="radio" id="score_0" name="score"><label for="score_0">0</label>
+        <input type="radio" id="score_1" name="score"><label for="score_1">1</label>
+        <input type="radio" id="score_2" name="score"><label for="score_2">2</label>
+        <input type="radio" id="score_3" name="score"><label for="score_3">3</label>
+        <input type="radio" id="score_4" name="score"><label for="score_4">4</label>
+        <input type="radio" id="score_5" name="score"><label for="score_5">5</label>
+      </div>
+
+      <div class="select">
+        <h4>배송&nbsp;&nbsp;&nbsp;&nbsp;</h4>
+        <input type="radio" id="fast" name="ship"><label for="fast">빨라요</label>
+        <input type="radio" id="normal" name="ship"><label for="normal">적당해요</label>
+        <input type="radio" id="slow" name="ship"><label for="slow">아쉬워요</label>
+      </div>
+
+      <div class="select">
+        <h4>포장&nbsp;&nbsp;&nbsp;&nbsp;</h4>
+        <input type="radio" id="good" name="pack"><label for="good">꼼꼼해요</label>
+        <input type="radio" id="bad" name="pack"><label for="bad">아쉬워요</label>
+      </div>
+
+      <div class="select">
+        <h4>상태&nbsp;&nbsp;&nbsp;&nbsp;</h4>
+        <input type="radio" id="high" name="quality"><label for="high">좋아요</label>
+        <input type="radio" id="normal" name="quality"><label for="normal">적당해요</label>
+        <input type="radio" id="low" name="quality"><label for="low">아쉬워요</label>
+      </div>
+
+      <div><h3>Comments</h3></div>
+      <textarea name="comments" rows="10" cols="120"></textarea>
+
+      <br><br>
+      <div class="button-info">
+        <button class="save-button">Save</button>
+      </div>
+
+    </div>
+</div>
+</body>
+</html>
