@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<head>
+    <style>
+        .container {
+            position: relative;
+            background-color: FFE0F4;
+            border: 1px solid black;
+            width: 40%;
+            margin-left: 30%;
+            height: 300%
+        }
+
+        .outerbox {
+            width: 30%;
+            height: 160px;
+            background-color: white;
+            position: absolute;
+            left: 5%;
+            top: 200px
+        }
+
+        .innerbox {
+            width: 27%;
+            height: 120px;
+            background-color: gray;
+            position: absolute;
+            left: 6.5%;
+            top: 210px;
+        }
+
+        .bottomleft {
+            position: absolute;
+            bottom: 3px;
+            left: 5px;
+            font-size: 9px;
+        }
+
+        .current {
+            background: white;
+            border-radius: 50% / 50%;
+            text-align: center;
+        }
+
+        .size1 {
+            width: 25%;
+            height: 35px;
+            font-size: 10px;
+        }
+
+        .size2 {
+            width: 35%;
+            height: 40px;
+        }
+
+        .plusoutline {
+            position: absolute;
+            left: 40%;
+            top: 280px;
+            width: 25%;
+            height: 130px;
+            background-color: F512CC;
+        }
+
+        .minusoutline {
+            position: absolute;
+            left: 66%;
+            top: 280px;
+            width: 25%;
+            height: 130px;
+            background-color: gray;
+        }
+
+        .change {
+            width: 20%;
+            height: 20px;
+            background-color: white;
+            border: 1px solid black;
+            border-radius: 20%/20%;
+            font-size: 9px;
+            text-align: center;
+        }
+        .size{
+            width:20%;height:17px;
+            font-size:10px;
+            text-align:left;
+        }
+        .inputsize {
+            width: 51%;
+            height: 17px;
+            font-size: 7px;
+            position: absolute;
+            left: 40%;
+            top: 420px;
+        }
+
+        .finish {
+            position: absolute;
+            right: 9%;
+            top: 440px;
+            background-color: pink;
+            border: 1px solid black;
+            border-radius: 20%/20%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h6 style="position: absolute; left:5%; top:145px;">경매종료
+            <span style="color:FF26D8;font-size:14pt">D-day</span></h2>
+
+            <div class="outerbox">
+                <div class="bottomleft">Item name: <br>빈티지 텔레비전</div>
+            </div>
+
+            <div class="innerbox"></div>
+
+            <div class="current size2" style="position:absolute;left:55%;top:225px"></div>
+            <div class="current size1" style="position:absolute;left:40%;top:210px"><br>현재입찰금액</div>
+
+            <div></div>
+
+            <div class="plusoutline">
+                <div class="bottomleft">add</div>
+            </div>
+
+            <div class="minusoutline">
+                <div class="bottomleft">minus</div>
+            </div>
+
+
+            <input class="size";type='button' onclick='count("plus500")' value='+500' style="position:absolute;left:43%;top:295px;"/>
+            <input class="size";type='button' onclick='count("plus1000")'value='+1000'style="position:absolute;left:43%;top:325px;"/>
+            <input class="size";type='button' onclick='count("plus5000")'value='+5000'style="position:absolute;left:43%;top:355px;"/>
+            <input class="size"; type='button' onclick='count("minus500")'value='-500'style="position:absolute;left:68%;top:295px;"/>
+            <input class="size";type='button' onclick='count("minus1000")'value='-1000'style="position:absolute;left:68%;top:325px;"/>
+            <input class="size";type='button' onclick='count("minus5000")'value='-5000'style="position:absolute;left:68%;top:355px;"/>
+            <div id='result' style="position:absolute;left:68%;top:230px">0</div>
+
+            <form method="get" action="">
+                <input class="inputsize" type="number" name="number" placeholder="입찰금액을 직접 입력하세요">
+                <input class="finish" type="submit" value="Finish">
+            </form>
+      <script>
+        function count(type)  {
+  // 결과를 표시할 element
+  const resultElement = document.getElementById('result');
+  
+  
+  let number = resultElement.innerText;
+  
+  // 더하기/빼기
+  if(type === 'plus500') 
+    number = parseInt(number) + 500;
+  else if(type === 'plus1000') 
+    number = parseInt(number) + 1000;
+    else if(type === 'plus5000') 
+    number = parseInt(number) + 5000;
+    else if(type === 'minus500') 
+    number = parseInt(number) - 500;
+    else if(type === 'minus1000') 
+    number = parseInt(number) - 1000;
+    else if(type === 'minus5000') 
+    number = parseInt(number) - 5000;
+  
+  // 결과 출력
+  resultElement.innerText = number;
+}
+      </script>
+
+</body>
