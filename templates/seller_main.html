@@ -3,7 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/takePage.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Irish+Grover&family=Source+Serif+4:opsz@8..60&display=swap"
+      rel="stylesheet"
+    />
     <style>
+    /*nav*/
+        .navbar {
+        width: 97%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px 20px;
+        }
+        .title {
+        text-decoration: none;
+        color: black;
+        font-size: 35px;
+        font-family: "Irish Grover";
+        }
+        ul {
+        width: 15vw;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        list-style: none;
+        }
+        li,
+        .login {
+        text-decoration-line: none;
+        color: black;
+        font-size: 20px;
+        font-family: "Source Serif 4";
+        }
+        .login {
+        width: 15vw;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        }
+
         body {
             font-family: Arial, sans-serif;
             background-color: #fafafa;
@@ -113,11 +158,43 @@
             cursor: pointer;
         }
 
+        .footer {
+          background-color: #ff53a5;
+          height: 15vh;
+        }
+        .footer-content {
+          font-size: 12px;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          text-align: center;
+          padding: 20px;
+        }
     </style>
     <title>Instagram Profile</title>
 </head>
 <body>
-
+  <nav class="navbar">
+    <div style="display: flex; flex-direction: row; align-items: center">
+      <a href="" class="title">Giboo & Take</a>
+      <ul class="navbar_menu">
+        <li>Giboo</li>
+        <li>Take</li>
+        <li>Charge</li>
+      </ul>
+    </div>
+    <div class="login">
+      <div>login</div>
+      <div>|</div>
+      <div>sign up</div>
+      <img
+        src="../static/icons/profile_img.png"
+        alt="profile"
+        style="width: 50px"
+      />
+    </div>
+  </nav>
 <div class="container">
   <div class="profile-container">
     <div class="image-container">
@@ -156,11 +233,17 @@
        <div class="review-item" onclick="openModal('image3.jpg', 'Review Image 3')">
            <img src="image3.jpg" alt="Review Image 3">
        </div>
-
-
-
     </div>
 </div>
+
+    <div class="footer">
+      <div>
+        <div class="footer-content">
+          Giboo&Take<br />Copyrightⓒ 2023 by 오소몰 all rights reserved
+        </div>
+        <!--인스타그램 깃허브 아이콘 연결-->
+      </div>
+    </div>
 
 <div id="myModal" class="modal">
     <div class="modal-content">
