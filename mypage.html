@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>마이페이지</title>
+    <style>
+        .container {
+            width: 650px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #FBC9E4;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 20px;
+        }
+
+        .box {
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+        }
+        
+        .stick_bar {
+            width: 340px; 
+            height: 15px; 
+            position: relative;
+            margin-left: -20px;
+            margin-top : -50px;
+            bottom: 23px;
+        }
+
+        #username {
+            font-size: 30px;
+            font-weight: bold;
+        }
+
+        .profile-image {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+        }
+        
+        .starDonation {
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            margin-left: 3px;
+        }
+
+        #keyword {
+            height: 30px;
+            margin-top: 9px;
+            margin-right: -5px;
+            border: none;
+            background-color: #D9D9D9;
+            border-radius: 0px; 
+        }
+
+
+        #submitButton {
+            height: 32px;
+            position: absoulte;
+            margin-top: 9px;
+            border: none;
+            background-color: #D9D9D9;
+            border-radius: 0px; 
+            text-align: center;
+            color: rgba(0, 0, 0, 0.35);
+        }
+
+        .delete-button {
+            background-color: transparent;
+            color: gray;
+            border: none;
+            padding: 5px 5px;
+        }
+
+        #keywordList {
+            list-style-type: none;
+        }
+
+        #keywordList li::before {
+            content: "\2605";
+            font-size: 18px;
+            color: #F44D99;
+            margin-left: -42px;
+            margin-right: 5px;
+        }
+
+        #other-section .box {
+            margin-top: 45px;
+            width: 200px;
+            height: 120px;
+            border: 2px solid #000;
+            border-radius: 20px;
+        }
+
+        #statistics .box {
+            margin-top: 30px;
+            margin-left: -95px;
+            width: 350px;
+            border: 2px solid white;
+            height: 220px;
+        }
+
+        .box-wrapper {
+            display: flex;
+            position: relative;
+        }
+
+        .box-wrapper .Face {
+            width: 110px;
+            height: 110px;
+            position: absolute;
+            top: 170px; 
+            left: -27px;
+        }
+
+        #Rank {
+            text-align: right;
+            font-size: 18px; 
+            font-weight: bold;
+        }
+        
+        #star_btn {
+            background-image: url('star_btn.png'); 
+            width: 140px;
+            height: 150px; 
+            border: none;
+            cursor: pointer;
+        }
+
+       .footer-content {
+           font-size: 12px;
+           display: flex;
+           flex-direction: column;
+           justify-content: center;
+           align-items: center;
+           text-align: center;
+           padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <section id="profile">
+            <div class="box-wrapper">
+            <div class="box" style="width: 300px; height: 190px;">
+                <img class="stick_bar" src="stick.png" alt="스틱바 이미지">
+                <img class="profile-image" id="user-profile-image" src="프로필.png" alt="프로필 이미지">
+                <h1 id="username" style="display: inline;">Kitty</h1>
+                <p class="starDonation">총 <span style="color: #F44D99;">63000 스타</span> 기부달성
+                     <img style="width: 24px; height: 24px; margin-bottom: 10px;" src="glitter.png" alt="글리터 이미지"></p>
+                <div id="Rank"><p>Rank: <span id="rank">0</span></p>
+                </div>
+                <img class="stick_bar" style="margin-left: -20px; margin-top : 40px; bottom: 50px;" src="stick.png" alt="스틱바 이미지">
+                <img class="Face" src="face.png" alt="얼굴 이미지">
+            </div>
+            </div>
+        </section>
+
+        <section id="settings" style="width: 230px; height: 200px; margin-left: 20px;">
+            <div class="box" >
+                <form id="keywordForm">
+                    <label for="keyword" style="font-size: 18px;">키워드 알림설정</label><br>
+                    <input type="text" id="keyword" name="keyword" placeholder=" 키워드를 입력하세요">
+                    <button type="submit" id="submitButton">+</button>
+                </form>
+                <div id="result">
+                    <ul id="keywordList" class="keyword-list">
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="other-section">
+            <div class="box">
+              <h2 style="font-size: 16px; margin-top: -2px">나의 스타</h2>
+              <p><strong><span id="star_balance" style="font-size: 30px;">0</span></strong></p>
+              <h2 style="font-size: 16px; text-align: right;">스타</h2>
+            </div>
+        </section>
+
+        <section id="statistics">
+            <div class="box">
+                <h2>통계 그래프</h2>
+            </div>
+        </section>
+         
+        <a href="장바구니 url">
+        <img style="width: 145px; height: 60px; margin-left: 120px; margin-top: 20px; position: relative; bottom: -25px;" src="MyCart.png" alt="장바구니 이미지"></a>
+        <img style="width: 280px; height: 40px; margin-left: -70px; position: relative; bottom: -65px;" src="sub_design.png" alt="서브 이미지">
+ </div>
+    <div class="footer">
+         <div>
+          <div class="footer-content">
+            Giboo&Take<br />Copyrightⓒ 2023 by 오소몰 all rights reserved
+            </div>
+            <!--인스타그램 깃허브 아이콘 연결-->
+          </div>
+        </div>
+    <script src="mypage.js"></script>
+</body>
+</html>
